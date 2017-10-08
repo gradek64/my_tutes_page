@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>array methods and checks</title>
+</head>
+<body>
+<code style=" white-space: pre;color:green;font-size:16px;">
+						
+		
+
+		
+		**************** Linux commands *******************
+
+		
+		**************** find ************
+
+		find a file/s name (no content)  in a directories
+			
+			find ([-H] [-L] [-P])  [where] [flags] ['text' onlfy with -name -iname][actions]
+			
+			(optional)
+			-P ignore symbolic links
+			-L follow symbolic links 
+			-H follow anything (deafault)
+
+		[flags]	
+			-type d,f type od directory,file
+			-maxdepth 1,2 
+			-1 one line 
+			-name "text" find with text in the file name 
+			-iname "text" find with text in the file name (case insensitive);
+			-print  shows nested directories as well in one line 
+			-print0 shows nested directories in one string (no new line);
+			-perm -664 
+			-mtime 0 (modified today)
+			-mtime 30 modfied at least 30 days ago
+
+			[actions]
+			-delete (should be the last command)
+
+				find -type d -iname "files*" -delete 
+			-exec [linux expresion] {} 
+				find -type d -name "files*" -exec rm -r {} \; (the same as above);
+
+
+			
+			 
+
+
+
+		[where] . - curent directory 
+			/files /otherFiles - multiple directories
+			
+
+
+
+
+		**************** mkdir ************
+
+
+		mkdir [flag] directory;
+		
+		     mkdir yourfolder yourFolder2  - creates multiple directories;
+
+		mkdir -p directory/nested directory (p flag for parent and child)
+
+		mkdir {} = create direcory based on object properties;
+		
+		mkdir {folder1,folder2,folder3} - coma sepearted folders;
+
+		mkdir folder{1..3} = shorthand for above;
+
+		mkdir -p folder{1..5}/nested{1..3} - 5 folders/3 nested folder each 
+
+
+
+
+		
+		**************** create files = touch, > , >> (append) ************
+
+
+
+		touch file{1..3}.txt - creates file1.text file2.txt file3.txt 
+			
+		**************** create files with content ************
+
+		echo -e "this/n /nis /nmy /nreggae " > createFile.txt (-e flag will interpreter any break 				lines/tabs etc);
+
+
+		
+			
+		**************** fint text, phrase grep, egrep  ************
+
+		grep [flag] ['text to find'] [where]
+
+		[flag] 
+				-i case insensitive, 
+				-r = reqursive(nested folders) 
+				-n(show lines) 
+				-o  show only results;
+				-c count words
+				-l  show only files not results
+				-e excepts regural expressions;
+				-L  show oposite (files that dont match)
+				-h no file name 
+				-H with file names (default)
+				--color (hightlight)
+
+		where  . = current directory (you have to use -r (recursive flag)  to use . 
+		       ./folder = nested directory (you have to use -r (recursive flag)  to use . 
+		       * (means anthing, any directory or file doesnt need any flag);
+
+
+		****************  egrep  ************
+
+		egrep [flag] ['text to find'] [where];
+
+		egrep -r -o -h 'comp.+' . = find only results no files name for any comp.. word
+
+
+
+
+		
+
+
+		********************piping | xargs ***************************
+
+		[flags] -d take argument literaly as \nGreg <breaking line and Greg>
+			-n 2 split output into 2 charackters 
+			-p requires user confirmation with exuecution 
+			-t shows the command used for execution 
+
+		1) find any file extension .c and remove it 
+
+			find . -name "*.c" | xargs rm -rf
+		
+		
+		
+		
+</code>
+</body>
+</html>
+</code>
+</body>
+</html>
