@@ -1,0 +1,13 @@
+<snippet>
+	<!-- ${1/./=/g} will replace any charakter from ${1} default -->
+    <content>
+    	<![CDATA[
+    	Original: ${1:Hey, Joe!}
+        Transformation: ${1/./=/g}
+		]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>reg</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in (this case only js files)-->
+    <!-- Optional: Description to show in the menu -->
+    <description>my credidetials</description>
+</snippet>

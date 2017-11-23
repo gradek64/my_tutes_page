@@ -1,0 +1,13 @@
+$setColor:green;
+
+
+body {
+	background-color: $setColor;
+}
+
+.make-note {
+		.panel-body {
+			height: 400px;
+			overflow-y: scroll;
+	}
+}

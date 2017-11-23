@@ -1,0 +1,6 @@
+body {
+  background-color: green; }
+
+.make-note .panel-body {
+  height: 400px;
+  overflow-y: scroll; }

@@ -1,0 +1,20 @@
+{
+  "name": "my_tuts",
+  "description": "run bower i to install libraires",
+  "main": "",
+  "authors": [
+    "grego"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gradek64/my_tutes_page",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

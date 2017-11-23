@@ -1,0 +1,15 @@
+<snippet>
+	<!-- ${1:Guillermo} cursor position with default value to Guillermo -->
+    <content>
+    	<![CDATA[
+    	First Name: ${1:Guillermo}
+        Second Name: ${2:López}
+        Address: ${3:Main Street 1234}
+        User name: $1
+		]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>default</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in (this case only js files)-->
+    <!-- Optional: Description to show in the menu -->
+    <description>my credidetials</description>
+</snippet>

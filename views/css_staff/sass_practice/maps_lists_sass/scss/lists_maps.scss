@@ -1,0 +1,74 @@
+            
+            /*
+                        any variable in sass is consiered as list even if there is only one value;
+
+                        Elements in list are seperated by comma or space;
+                  
+            */
+
+$List0 : 200px; /*it is list as value*/
+$List1 : 200px; /*it is list as value*/
+$List2 : 1px 2px 3px black,;
+$List3 : Helvetica, sans-serif;
+
+$zip1: 1px 2px 3px 4px;
+$zip2: 4em 3em 2em 1em;
+$zip3: black green blue red;
+
+$NestedList :   1px 2px 3px green,   6px 7px 8px blue,   3px 2px 1px yellow;
+
+html{
+      /*length requires 1 arugment*/
+      width: length( $List2 ) ;  //returns 1
+      width: length( $List2 ) ;  //(based on space no coma inside ) returns 4
+      width: length( $List3 ) ;  //(based on coma blocks) returns 3
+
+      //nth requires 2 arguments ONLY accepsts nested coma seperate lists;
+      background: nth( $NestedList , 2 ) ; //(based on coma blocks) returns 6px 7px 8px blue;
+
+      /*replace list value ...requires 3 arguments ONLY accepsts nested coma seperate lists*/
+      text-shadow: set-nth( $NestedList , 3 , 0em 1em .5em brown ) ; //(based on coma blocks) replaces  3px 2px 1px yellow with 3,0em 1em .5em brown;
+
+
+      /* list-separator  requires 1 arugment*/
+      height: list-separator( $List1 ) ; //(based on space no coma inside ) returns space
+      height: list-separator( $NestedList ) ; //(based on space no coma inside ) returns coma
+
+      /* join  requires 2 arugment 3 optional*/
+      line-height: join( $NestedList , $List3,  comma ) ; //will join $NestedList with $List3 producing 1px 2px 3px green,   6px 7px 8px blue,   3px 2px 1px yellow, Helvetica, Arial, sans-serif
+      line-height: join( $List0 , $List1,  space ) ; //will join $List0 with $List1 producing 200px 200px;
+      line-height: join( $List0 , 'Arial') ; //will join $List0 with string value producing 200px Arial ( based on space)
+      line-height: join( $List3 , 'Arial') ; //will join $List0 with string value producing Helvetica, sans-serif, Arial ; ( based on coma)
+
+      /* append  requires 2 arugment*/
+      font: append( $zip3 , gray ) ; //will appned $zip3 with string value producing black green blue red gray; ( based on space)
+
+
+
+      /* index of the value in the list  requires 2 arugment*/
+      font-size: index( $NestedList , 3px 2px 1px yellow ) ; //returns 3
+      font-size: index( $zip1 , 1px ) ; //returns 1
+
+      /* cobines lists into large single list*/
+      background: zip( $zip1 , $zip2 , $zip3 ) ; //based on lists
+      background: zip( 4em 3em , 4em 3em , 4em 3em ) ; //basesd on values
+}
+
+$BasicMap : (
+      'KeyName'    : 'Value',
+      'AnotherKey' : 200px
+);
+
+$Map1 : (
+      'KeyName'    :  'targeting a key produces it\'s value!',
+      'String'          :  string,
+      'Number'      :  102,
+      'List'             :  ( background .2s,  color .3s ),
+      'NestedMap' :  (
+            'NestedKey' :  'Nested value',
+            'url'              :  "../images/nestedImg.png",
+            'Width'         :  300px
+      )
+ );
+
+ $Map2 : (   'key1' : 'value1',   'key2' : 'value2',   'key3' : 'value3' );

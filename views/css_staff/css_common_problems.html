@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> css tricks to know</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<style>
+		.dashed-border {
+			border: 1px dashed #ccc;
+		}
+		div[redborder=set] {
+				border: 1px solid red;
+		}
+	</style>
+		<div class="container-fluid">
+			<div class="row">
+				<h2>Positioning in css</h2>
+				<h3>position:inline</h3>
+				<p>The default value for elements. Think of elements like <span>span</span>, <em>em</em>, or <b>I am b</b> or a tag <a href="#">I am tag</a> and how wrapping text in those elements within a string of text doesn't break the flow of the text.</p>
+
+
+				<p>An inline element will accept margin and padding, but the element still sits inline as you might expect. Margin and padding will only push other elements horizontally away, not vertically.</p>
+				<div style="border: 1px solid red;display: inline">i am div inline</div>
+				<div>i am div inline</div>
+
+			</div>
+		</div>
+
+
+		<h1>floating versus inline-block</h1>
+		<div class="container">
+			<style>
+				/*vertical spacing*/
+				.third p{
+					display: table-cell;
+					vertical-align: middle;
+				}
+				.second p, .second div {
+					display: inline-block;
+					width: 30%;
+					vertical-align: middle;
+				}
+				.third p , .third div {
+					position: absolute;
+					width: 30%;
+					display: table-cell;
+					vertical-align: middle;
+				}
+				.forth p, .second div {
+					float: left;
+					width: 30%;
+				}
+				
+
+			</style>
+			<h2> this is bootstrap panel collapse that have to use 'float' for horizontal alliemnt since is using display:none for collapse</h2>
+			<p>METHOD ONE FLOAT AND LINE-HEIGHT</p>
+			<div class="row first" style="background-color: gray;">
+				          	  
+				          	  c
+						      <div id="collapse1" class="col-sm-8 collapse in">
+						        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						      </div>
+						      <p class="pull-right">caret</p>
+			</div>
+			<p>Centerizing text</p>
+			<h2>Scenario1 </h2>
+				<p>data is display:block or display:block you can use vertical-align: middle;</p>
+			<div class="row second" style="background-color: lightgray">
+				          	<p class="" data-toggle="collapse" data-target="#collapse2">I am p </strong>display:inline;</strong>width:30%<strong>vertical-align:</strong>/p>
+						     
+						      <p class="">I am display:inline;width:30%<br>I am display:inline;width:30%<br>I am <strong>display:inline;</strong>width:30%;<br>I am display:inline;width:30%;<br>I am display:inline;width:30%</p>
+						       <div>
+						        I am div which is  <strong>display:inline;</strong>width:30%;<strong>vertical-align:middle</strong>
+						      </div>
+			</div>
+			<h2>Scenario2 </h2>
+				<p>data position:absolute with clearfix as last one or :after { clear:both }</p>
+			<div class="row third" style="position: relative;height: 200px;">
+								  <p style="left: 0">click to me to toggle collapse<br>click to me to toggle collapse<br>click to me to toggle collapse<br>click to me to toggle collapse<br>click to me to toggle collapse<br>click to me to toggle collapse<br>click to me to toggle collapse<br>click to me to toggle collapse<br></p>
+								   <div style="clear: both;"></div>
+							      <div style="left: 30%;top:40%;">
+							        this method not much used at all it doesnt work without settng static height:400px in pixel;
+							      </div>
+			</div>
+			 <div style="clear: both;"></div>
+			 <h2>Scenario3 </h2>
+				<p>data is display:block or display:block you can use vertical-align: middle;</p>
+			<div class="row forth" style="background-color: lightgray">
+				          	<p class="" data-toggle="collapse" data-target="#collapse2">I am p </strong>display:inline;</strong>width:30%<strong>vertical-align:</strong>/p>
+						     
+						      <p class="">I am display:inline;width:30%<br>I am display:inline;width:30%<br>I am <strong>display:inline;</strong>width:30%;<br>I am display:inline;width:30%;<br>I am display:inline;width:30%</p>
+						       <div>
+						        I am div which is  <strong>display:inline;</strong>width:30%;<strong>vertical-align:middle</strong>
+						      </div>
+			</div>
+		</div>
+
+		<div class="container">
+		  <h2>Popular CSS3 selectors and explanation</h2>
+		  <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+		  <div class="panel-group" id="accordion">
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">div.section1 p (select any nested p <strong>at any level</strong>)</a>
+		        </h4>
+		      </div>
+		      <div id="collapse1" class="panel-collapse collapse in">
+		        <div class="panel-body section1">
+		        	<style> div.section1 p { border: 3px solid #ccc; }</style>
+					<div>
+					  <h2>My name is Donald</h2>
+					  <p>selected</p>
+					</div>
+
+					<div>
+					  <p>selected</p>
+					  <h2>My name is Donald</h2>
+					</div>
+
+					<p>selected</p>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		                <h4 class="panel-title">
+		                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">div.section2 div > p (select any nested p but <strong>only first level down</strong>)</a>
+		                </h4>
+		              </div>
+		              <div id="collapse2" class="panel-collapse collapse">
+		                <div class="panel-body section2">
+		                	<style> div.section2 div > p { border: 3px solid #ccc; }</style>
+		        			<div>
+		        			  <p>seleted ma parent is div</p>
+		        			  <h2>My name is Donald</h2>
+		        			  <p>seleted my parent is div</p>
+		        			</div>
+
+		        			<div>
+		        			  <span><p>not selected my parent is span</p></span>
+		        			</div>
+
+		              </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		                <h4 class="panel-title">
+		                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">div.section3 div + p (selects only imidieate next p but <strong>only first level down</strong>)</a>
+		                </h4>
+		              </div>
+		              <div id="collapse3" class="panel-collapse collapse">
+		                	<style> div.section3 div + p { border: 3px solid #ccc; }</style>
+		                <div class="panel-body section3">
+
+		        			<div>my neighbours are p h2 and p</div>
+		        			  <p>I am the closest to the div I am seleted</p>
+		        			  <p>I am neigbour but not the closest ;( not seleted</p>
+		        			</div>
+		        			
+
+		        			<div>
+		        			  <p>I am nested not selected</p></span>
+		        			</div>
+
+		                </div>
+		    </div>
+		  </div> 
+		</div>
+		
+		<div class="container"> .container .row 
+			<div class="row">
+			<p class="col-md-8 offset-md-2">Vertical text in the div</p>
+			</div>
+			<div class="row dashed-border">
+
+				<div class="col-md-4 dashed-border">
+					<div class="textCenterVertical"  redborder="set" >.col-md-4 </div>
+					<style> .textCenterVertical { height: 200px;line-height: 200px; } </style>
+					<code >
+							.textCenterVertical { <strong>height: 200px;</strong> } 
+							.textCenterVertical p { <strong>line-height: 200px;</strong> }
+					</code>
+				</div>
+				<div class="col-md-4 dashed-border">
+					<div class="textCenterVertical1" redborder="set"  >.col-md-4 </div>
+					<style> .textCenterVertical1 { height:200px;display: flex; align-items: center; justify-content: center;} </style>
+					<code >
+							.textCenterVertical1  { display: flex; align-items: center; <strong>justify-content: center</strong> };
+					</code>
+				</div>
+				<div class="col-md-4 dashed-border">
+					<div class="textCenterVertical2" redborder="set"  >.col-md-4 </div>
+					<style> .textCenterVertical2 { height:150px; display: table-cell; vertical-align: middle; } </style>
+					<code >
+							.textCenterVertical2 { height:150px; <strong>display: table-cell;</strong> vertical-align: middle; }
+					</code>
+				</div>
+				
+		
+			</div>
+			<div class="row">
+				<div class="row dashed-border">
+
+					<div class="col-md-4 dashed-border">
+						<div class="textCenterVertical"  redborder="set" >.col-md-4 </div>
+						<style> .textCenterVertical { height: 200px;line-height: 200px; } </style>
+						<code >
+								.textCenterVertical { <strong>height: 200px;</strong> } 
+								.textCenterVertical p { <strong>line-height: 200px;</strong> }
+						</code>
+					</div>
+					<div class="col-md-4 dashed-border">
+						<div class="textCenterVertical1" redborder="set"  >.col-md-4 </div>
+						<style> .textCenterVertical1 { height:200px;display: flex; align-items: center; justify-content: center;} </style>
+						<code >
+								.textCenterVertical1  { display: flex; align-items: center; <strong>justify-content: center</strong> };
+						</code>
+					</div>
+					<div class="col-md-4 dashed-border">
+						<div class="textCenterVertical2" redborder="set"  >.col-md-4 </div>
+						<style> .textCenterVertical2 { height:150px; display: table-cell; vertical-align: middle; } </style>
+						<code >
+								.textCenterVertical2 { height:150px; <strong>display: table-cell;</strong> vertical-align: middle; }
+						</code>
+					</div>
+					
+				
+				</div>
+			</div>
+
+			<div class="row">
+				<style>
+				body {
+				      position: relative; 
+				  }
+				  .affix {
+				      top:0;
+				      width: 100%;
+				      z-index: 9999 !important;
+				  }
+				  .navbar {
+				      margin-bottom: 0px;
+				  }
+					
+					/*
+						select every element with class .container-fluid but only after .affix element , another words select every .container-fluid if it preceded by 
+						.affix 
+					*/
+				  .affix ~ .container-fluid {
+				     /* position: relative;
+				     top: 0px;
+				     border: 1px solid red */;
+				  }
+				  #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+				  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+				  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+				  #section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+				  #section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+				  </style>
+				<div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
+				  <h1>Scrollspy & Affix Example</h1>
+				  <h3>Fixed navbar on scroll</h3>
+				  <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
+				  <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
+				</div>
+				<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				          <span class="icon-bar"></span>
+				          <span class="icon-bar"></span>
+				          <span class="icon-bar"></span>                        
+				      </button>
+				      <a class="navbar-brand" href="#">WebSiteName</a>
+				    </div>
+				    <div>
+				      <div class="collapse navbar-collapse" id="myNavbar">
+				        <ul class="nav navbar-nav">
+				          <li><a href="#section1">Section 1</a></li>
+				          <li><a href="#section2">Section 2</a></li>
+				          <li><a href="#section3">Section 3</a></li>
+				          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+				            <ul class="dropdown-menu">
+				              <li><a href="#section41">Section 4-1</a></li>
+				              <li><a href="#section42">Section 4-2</a></li>
+				            </ul>
+				          </li>
+				        </ul>
+				      </div>
+				    </div>
+				  </div>
+				</nav> 
+				<div id="section1" class="container-fluid">
+				  <h1>Section 1</h1>
+				  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				</div>
+				<div id="section2" class="container-fluid">
+				  <h1>Section 2</h1>
+				  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+				</div>
+			</div>
+			
+		</div>
+		
+	
+
+</body>
+</html>

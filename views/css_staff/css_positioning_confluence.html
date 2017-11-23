@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS positioning</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+	
+	  	.wrapper {
+	  		position: relative;
+	  		border:1px dotted gray;
+	  	}
+	  	
+</style>
+<body>
+	<div class="container-fluid" style="max-width: 1000px;margin: 0 auto;">
+		<div class="row">
+	<h1>CSS weird selectors</h1>
+	<section class="part">
+		<h3 class="bg-primary">parent selector div > p </h3>
+
+		<div class="panel-group">
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" href="#css-selectors-1">About:</a>
+		        </h4>
+		      </div>
+		      <div id="css-selectors-1" class="panel-collapse collapse">
+		        <div class="panel-body">
+		        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">Parent selector has simple rule , it will <em>select every element</em> in this case <mark>&#8249;p&#8250;</mark> as long as its parent is <mark>&#8249;div&#8250;</mark>. <em>The order doesnt matter</em> and it will select all children which are  <mark>&#8249;p&#8250;</mark> elements</h4>
+		        </div>
+		        <div class="panel-footer">
+		        <h3>Example below</h3>
+					<style>
+					.parent-selector div {border: 1px solid green;padding: 20px}
+					.parent-selector div > p {
+					    border:1px dotted gray;
+					    color:orange;
+					}
+					</style>
+					</head>
+					<body>
+
+					<div class="parent-selector">
+							<div>
+								<span>div</span>
+							 	<p>I am p element inside div so I am selected</p>
+							  	<p>I am p element inside div so I am selected</p>
+							  		<div>
+							  		<span>div</span>
+									  <p style="margin-left:10px;">I am nested p element inside div so I am selected</p>
+									  <p style="margin-left:10px;">I am nested p element inside div so I am selected</p>
+									  <section><p>I am p element but my parent is section not styled though</p></section>
+									</div>
+							</div>
+
+							<div>
+								<span>div</span>
+								<p>I am p element inside div so I am selected</p>
+							  	<span><p>I will not be styled. I am span element </p></span>
+							</div>
+
+							<section><p>I am p elemeb but my parent is section not styled though</p></section>
+					</div>
+		      		</div>
+		    	</div>
+		    </div>
+
+		  <h3 class="bg-primary"> + (neihbour or next-to ) selector div + p </h3>
+
+		  		<div class="panel-group">
+		  		    <div class="panel panel-default">
+		  		      <div class="panel-heading">
+		  		        <h4 class="panel-title">
+		  		          <a data-toggle="collapse" href="#css-selectors-2">About:</a>
+		  		        </h4>
+		  		      </div>
+		  		      <div id="css-selectors-2" class="panel-collapse collapse">
+		  		        <div class="panel-body">
+		  		        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">Plus selector has simple rule , it will <em>only select first</em> neighbour in this case <mark>&#8249;p&#8250;</mark> first p element and only first one !  <mark>&#8249;div&#8250;</mark>.
+		  		        </div>
+		  		        <div class="panel-footer">
+		  		        <h3>Example below: div.plus-selector div + p  </h3>
+		  					<style>
+		  					.plus-selector div {border: 1px solid green;padding: 20px}
+		  					.plus-selector div + p {
+		  					    border:1px dotted gray;
+		  					    color:orange;
+		  					}
+		  					</style>
+		  					</head>
+		  					<body>
+
+		  					<div class="plus-selector">
+		  							<div>
+		  								<span>div</span>
+		  							 	<p>I am p element inside div so I am not selected</p>
+		  							  	<p>I am p element inside div so I am not selected</p>
+		  							  		
+		  							</div>
+		  							 <p style="margin-left:10px;">I am p element and I am the closet to the div so I am selected</p>
+		  							 <p style="margin-left:10px;">I am p element but I am second neighbour to the so I am not selected</p>
+
+		  							<div>
+		  								<span>div</span>
+		  								<p>I am p element inside div so I am not selected</p>
+		  							  	<span><p>I will not be styled. I am span element </p></span>
+		  							</div>
+		  							<section>i am section not selected</section>
+		  							<p>I am p but my nighbour is section not seleted ONLY FIRST ELEMENT AFTER DIV</p>
+		  							<p>I am p element and I am second neigbour even though I am first p in the row I am not selected ONLY FIRST ELEMENT AFTER DIV</p>
+		  					</div>
+		  		      		</div>
+		  		    	</div>
+		  		    </div>
+		  	 <h3 class="bg-primary"> tildo selector div ~ p </h3>
+
+		  		<div class="panel-group">
+		  		    <div class="panel panel-default">
+		  		      <div class="panel-heading">
+		  		        <h4 class="panel-title">
+		  		          <a data-toggle="collapse" href="#css-selectors-3">About:</a>
+		  		        </h4>
+		  		      </div>
+		  		      <div id="css-selectors-3" class="panel-collapse collapse">
+		  		        <div class="panel-body">
+		  		        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">Tildo selector is similar to plus selector ,but it will select all neighbours in this case <mark>&#8249;p&#8250;</mark> all p elements once plus selector only will select FIRST Neighbour and only FIRST <mark>&#8249;div&#8250;</mark>.
+		  		        </div>
+		  		        <div class="panel-footer">
+		  		        <h3>Example below</h3>
+		  					<style>
+		  					.tildo-selector div {border: 1px solid green;padding: 20px}
+		  					.tildo-selector div ~ p {
+		  					    border:1px dotted gray;
+		  					    color:orange;
+		  					}
+		  					</style>
+		  					</head>
+		  					<body>
+
+		  					<div class="tildo-selector">
+		  							<div>
+		  								<span>div</span>
+		  							 	<p>I am p element inside div so I am not selected</p>
+		  							  	<p>I am p element inside div so I am not selected</p>
+		  							  		
+		  							</div>
+		  							 <p style="margin-left:10px;">I am p element and I am the closet to the div so I am selected</p>
+		  							 <p style="margin-left:10px;">I am p element but I am second neighbour to the so I am not selected</p>
+
+		  							<div>
+		  								<span>div</span>
+		  								<div>nested div</div>
+		  								<p>I am nested p element and my neihbor is div so I am seleted</p>
+		  							  	<span><p>I will not be styled. I am span element </p></span>
+		  							</div>
+		  							<section>i am section not selected</section>
+		  							<p>I am p element and I am first neigbour but I will be selected</p>
+		  							<p>I am p element and I am second neigbour but I will be selected</p>
+		  					</div>
+		  		      		</div>
+		  		    	</div>
+		  		    </div>
+
+			
+
+		 
+			<h1>CSS positioning</h1>
+			<section class="part">
+				<h3 class="bg-primary">position:inline</h3>
+
+				<div class="panel-group">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <a data-toggle="collapse" href="#css1">About:</a>
+				        </h4>
+				      </div>
+				      <div id="css1" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        	The default value for elements. Think of elements like <mark>&#8249;code&#8250;</mark>,<mark>&#8249;span&#8250;</mark>, <mark>&#8249;emn&#8250;</mark>, or <mark>&#8249;b&#8250;</mark> or <mark>&#8249;a&#8250;</mark> . Those tags are always displyad in line and it wont break a line unleas you will use <mark>&#8249;br&#8250;</mark> tag.Important IT CAN NOT BE APPLIED to block elements as <mark>&#8249;div&#8250;</mark>,<mark>&#8249;p&#8250;</mark>,<mark>&#8249;sectionn&#8250;</mark> it will break line and browswer will ignore position:inlinem, Even for inline elements there is no point of applying position:inline so it is pretty much pointless that feature
+				        </div>
+				        <div class="panel-footer">Example below</div>
+				      </div>
+				    </div>
+				  </div><!--panel group-->
+
+				<div class="panel-group bg-primary">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <span class="glyphicon glyphicon-circle-arrow-down" data-toggle="collapse" data-target="#collapse1">CSS (example below)</span>
+				        </h4>
+				      </div>
+				      <div id="collapse1" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        	<div class="jumbotron">
+    					  	<h4>CSS</h4>
+    					    <code style="white-space: pre-line;">
+    					  	span.inline {
+    							<del>position: inline</del> /* it is already there by default*/;
+    							<del>width:40px;</del> /*ignored*/
+    							<del>height:40px;</del> /*ignored*/
+    							padding: 30px;
+    							border: 2px dashed darkgrey;
+    							<del>margin-top:40px;</del> /*ignored*/
+    							<del>margin-bottom:40px;</del> /*ignored*/
+    							margin-left:4px;
+    							margin-right:50px; /*works*/
+    					  	}<br>
+    					  	p.inline {
+    							<del>position: inline</del> /*ignored*/;
+    							width:40px;
+    							height:40px;
+    							padding: 30px;
+    							border: 2px dashed darkgrey;
+    							margin:20px;
+    					  	}
+    					  </code>
+    					  </div>
+				        </div>
+				      </div>
+				    </div>
+				  </div><!--panel group-->
+
+				  <style>
+				  	.inline {
+				  		display: : inline;
+						width:40px;
+						height:40px;
+						padding: 30px;
+						border: 2px dashed darkgrey;
+						margin:20px;
+				  }
+				  </style>
+
+				  <!--2  inline-block -->
+				 
+				  <samp>This text is meant <span class="inline">span: position:inline</span> <em class="inline">em: position:inline</em>to be treated as sample output from a computer program.<p class="inline">div: position:inline</p><p class="inline">div: position:inline</p></samp>
+
+				  <h3 class="bg-primary">position:inline-block</h3>
+
+				<div class="panel-group">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <a data-toggle="collapse" href="#about2">About:</a>
+				        </h4>
+				      </div>
+				      <div id="about2" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        	An element set to inline-block is very similar to inline in that it will set inline with the natural flow of text (on the "baseline"). The difference is that you are able to set a width and height which will be respected.
+
+				        	The default value for elements. Think of elements like <mark>&#8249;code&#8250;</mark>,<mark>&#8249;span&#8250;</mark>, <mark>&#8249;emn&#8250;</mark>, or <mark>&#8249;b&#8250;</mark> or <mark>&#8249;a&#8250;</mark> . Those tags are always displyad in line and it wont break a line unleas you will use <mark>&#8249;br&#8250;</mark> tag.Important IT CAN NOT BE APPLIED to block elements as <mark>&#8249;div&#8250;</mark>,<mark>&#8249;p&#8250;</mark>,<mark>&#8249;sectionn&#8250;</mark> it will break line and browswer will ignore position:inlinem, Even for inline elements there is no point of applying position:inline so it is pretty much pointless that feature
+				        </div>
+				        <div class="panel-footer">Example below</div>
+				      </div>
+				    </div>
+				  </div><!--panel group-->
+
+				<div class="panel-group bg-primary">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <span class="glyphicon glyphicon-circle-arrow-down" data-toggle="collapse" data-target="#css2">CSS (example below)</span>
+				        </h4>
+				      </div>
+				      <div id="css2" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        	<div class="jumbotron">
+    					  	<h4>CSS</h4>
+    					    <code style="white-space: pre-line;">
+    					  	  	span.inline-block ,em.inline-block{
+    					  	  		display:  inline-block;
+    					  	  		width: 120px;
+    					  	  		height: 140px;
+    					  			padding: 3px;
+    					  			border: 2px solid darkgrey;
+    					  			margin:2px;
+    					  	  }
+    					  	  	div.inline-block {
+    					  	  		display:  inline-block;
+    					  			padding: 3px;
+    					  			border: 2px solid darkgrey;
+    					  			margin:2px;
+    					  	  }
+
+									/*no need to for width and height it will adjust to content*/
+
+									/* by default it will make a small gap between elements */
+
+									/* by default content will be set to top (expected)*/
+
+									/* entire element will be set to the bottom*/
+							  }
+    					  </code>
+    					  </div>
+				        </div>
+				      </div>
+				    </div>
+				  </div><!--panel group-->
+
+				  <style>
+
+
+				  	span.inline-block ,em.inline-block{
+				  		display:  inline-block;
+				  		width: 120px;
+				  		height: 220px;
+						padding: 3px;
+						border: 2px solid darkgrey;
+						margin:2px;
+				  }
+				  	div.inline-block {
+				  		display:  inline-block;
+						padding: 3px;
+						border: 2px solid darkgrey;
+						width: 40%;
+						margin:2px;
+				  }
+				  </style>
+
+
+				  This text is meant <span class="inline-block">span: display:  inline-block;
+				  		width: 120px;
+				  		height: 140px;
+						padding: 3px;
+						border: 2px solid darkgrey;
+						margin:2px;</span> <em class="inline-block">em: display:  inline-block;
+				  		width: 120px;
+				  		height: 140px;
+						padding: 3px;
+						border: 2px solid darkgrey;
+						margin:2px;</em>to be treated as sample output from a computer program.<br>
+				  <div class="wrapper"><p>I am wrapper</p>
+				  	<div class="inline-block">div: position:inline-block,padding: 3px;border: 2px solid darkgrey;margin:2px;</div>
+				    <div class="inline-block">div: position:inline-block,padding: 3px;border: 2px solid darkgrey;
+						margin:2px;<br>addtional text next line</div>
+				  </div>
+
+				  <!--display:inline black with vertical allign -->
+
+				  <h3 class="bg-primary">position:inline-block</h3>
+				  <h4 style="padding-left: 20px;">with vertical alligment</h4>
+
+				  <div class="panel-group bg-primary">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <span class="glyphicon glyphicon-circle-arrow-down" data-toggle="collapse" data-target="#css4">top leading</span>
+				        </h4>
+				      </div>
+				      <div id="css4" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        			  <style>
+
+
+				        			  	div.inline-block1 ,p.inline-block1 ,span.inline-block1 {
+				        			  		display:  inline-block;
+				        					padding: 0;
+				        					border: 2px solid darkgrey;
+				        					width: 16%;
+				        					padding:0 20px 0 20px;
+				        					margin:0px;
+				        					color:green;
+				        			  }
+
+				        			  </style>
+				        	
+				        	 		 <div class="wrapper">
+				        				  	<div class="inline-block1" style="vertical-align: middle;">
+				        				  		I am middle group but the leading is from top gang so I need to listen to him ;( so I am at the top<kbd>vertical-align:middle</kbd>
+				        				  	</div>
+				        				    <div class="inline-block1" style="vertical-align: top;">I in on top group I am alignment to container dont care about who is the tallest of us<kbd>vertical-align:top</kbd>
+				        					</div>
+				        					
+				        				  	<div class="inline-block1" style="vertical-align: top">
+				        				  		  	<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  			<kbd>I am the tallest and I am set to vertical-align: top</kbd>
+				        				  			<kbd>my height dectates the rest middle is ignored cause I am telling only top</kbd>
+				        				  			<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  			<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  	</div>
+				        				  	<p class="inline-block1" style="vertical-align: middle;">vertical-align:top is the highest one so I need to listen to him so I am on top there is no middle taller that him ;( not my group<kbd>vertical-align:middle</kbd>
+				        				  	</p>
+				        				  	<span class="inline-block1" style="vertical-align: bottom;">I am in bottom group I am good mate with top and by I dont care aboout others alligment anyway cause I bottom to container<kbd>vertical-align:bottom</kbd>
+				        				  	</span>
+				        		 		</div>
+				        	  		</div>
+				        </div>
+				      </div>
+				  </div><!--panel group-->
+
+				  <div class="panel-group bg-primary">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <span class="glyphicon glyphicon-circle-arrow-down" data-toggle="collapse" data-target="#css5">middle leading</span>
+				        </h4>
+				      </div>
+				      <div id="css5" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        			  <style>
+
+
+				        			  	div.inline-block1 ,p.inline-block1 ,span.inline-block1 {
+				        			  		display:  inline-block;
+				        					padding: 0;
+				        					border: 2px solid darkgrey;
+				        					width: 16%;
+				        					padding:0 20px 0 20px;
+				        					margin:0px;
+				        					color:green;
+				        			  }
+
+				        			  </style>
+				        	
+				        	 		 <div class="wrapper">
+				        				  	<div class="inline-block1" style="vertical-align: middle;">
+				        				  		I am middle group but the leading is from middle gang so I am lucky so I will take middle height of my middle mate<kbd>vertical-align:middle</kbd>
+				        				  	</div>
+				        				    <div class="inline-block1" style="vertical-align: top;">I in on top group I am alignment to container dont care about who is the tallest of us<kbd>vertical-align:top</kbd>
+				        					</div>
+				        					
+				        				  	<div class="inline-block1" style="vertical-align: middle">
+				        				  		  	<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  			<kbd>I am the tallest and I am set to vertical-align: middle</kbd>
+				        				  			<kbd>my height dectates the rest middle my height so they are set to my middle height</kbd>
+				        				  			<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  			<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  	</div>
+				        				  	<p class="inline-block1" style="vertical-align: middle;">vertical-align:middle is the highest one so I need to listen to him so it is my group so I will take middle hight of him<kbd>vertical-align:middle</kbd>
+				        				  	</p>
+				        				  	<span class="inline-block1" style="vertical-align: bottom;">I am in bottom group I am good mate with top and by I dont care aboout others alligment anyway cause I bottom to container<kbd>vertical-align:bottom</kbd>
+				        				  	</span>
+				        		 		</div>
+				        	  		</div>
+				        </div>
+			
+				    </div>
+				  </div><!--panel group-->
+				  <div class="panel-group bg-primary">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <span class="glyphicon glyphicon-circle-arrow-down" data-toggle="collapse" data-target="#css6">bottom leading</span>
+				        </h4>
+				      </div>
+				      <div id="css6" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        			  <style>
+
+
+				        			  	div.inline-block1 ,p.inline-block1 ,span.inline-block1 {
+				        			  		display:  inline-block;
+				        					padding: 0;
+				        					border: 2px solid darkgrey;
+				        					width: 16%;
+				        					padding:0 20px 0 20px;
+				        					margin:0px;
+				        					color:green;
+				        			  }
+
+				        			  </style>
+				        	
+				        	 		 <div class="wrapper">
+				        				  	<div class="inline-block1" style="vertical-align: middle;">
+				        				  		vertical-align:middle is the highest one is bottom so I need to listen to him so I am down 
+				        				  		<kbd>vertical-align:middle</kbd>
+				        				  	</div>
+				        				    <div class="inline-block1" style="vertical-align: top;">I in on top group I am alignment to container dont care about who is the tallest of us<kbd>vertical-align:top</kbd>
+				        					</div>
+				        					
+				        				  	<div class="inline-block1" style="vertical-align: bottom">
+				        				  		  	<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  			<kbd>I am the tallest and I am set to vertical-align: bottom</kbd>
+				        				  			<kbd>my height dectates the rest middle has to listen to me</kbd>
+				        				  			<br>
+				        				  			<br>
+				        				  			<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  			<br>addtional text next line<br>addtional text next line<br>addtional text: 
+				        				  	</div>
+				        				  	<p class="inline-block1" style="vertical-align: middle;">vertical-align:middle is the highest one is bottom so I need to listen to him so I am down <kbd>vertical-align:middle</kbd>
+				        				  	</p>
+				        				  	<span class="inline-block1" style="vertical-align: bottom;">I am in bottom group I am good mate with top and by I dont care aboout others alligment anyway cause I bottom to container<kbd>vertical-align:bottom</kbd>
+				        				  	</span>
+				        		 		</div>
+				        	  		</div>
+				        </div>
+				      
+				    </div>
+				  </div><!--panel group-->
+
+
+				  				  <h3 class="bg-primary">floating float:left</h3>
+
+				  				<div class="panel-group">
+				  				    <div class="panel panel-default">
+				  				      <div class="panel-heading">
+				  				        <h4 class="panel-title">
+				  				          <a data-toggle="collapse" href="#about4">About: floating</a>
+				  				        </h4>
+				  				      </div>
+				  				      <div id="about4" class="panel-collapse collapse">
+				  				        <div class="panel-body">
+				  				        	floting element dont have <kbd>height</kbd>, so you need to clear float by <code>clear:both</code> after the last element, that could be achieved in 2 ways: <br>
+				  				        		(1) by appling empty <code>div style="clear: both"</code>as last element<br>
+				  				        		(2) or by appling sudo class::after to the container <kbd>examples below...</kbd>
+
+				  				        		<h5>vertical aligmnet</h5>
+				  				        		<p>just because everythign is floating you can not use vertical align: cause <kbd>height</kbd> dont exist to vertically allign elements margin needs to be used or line-height (but line height wont work for muliple text lines)</p>
+				  				        </div>
+				  				        <div class="panel-footer">Example below</div>
+				  				      </div>
+				  				    </div>
+				  				  </div><!--panel group-->
+
+				  			
+
+				  				  <style>
+				  
+				  				  	div.floating {
+				  				  		float:left;
+				  						padding: 3px;
+				  						border: 2px solid darkgrey;
+				  						width: 40%;
+				  		
+				  				  }
+				  				  </style>
+				  				  <h5 class="bg-warning"> div style="clear:both"</h5>
+				  				  <div class="wrapper" style="margin-bottom: 50px;">
+						  				  	<div class="floating">div: position:block,padding: 3px;border: 2px solid darkgrey;margin:2px;
+						  				  	</div>
+						  				    <div class="floating">div: position:block,padding: 3px;border: 2px solid darkgrey;
+						  						margin:2px;<br>addtional text next line<br>addtional text next line<<br>addtional text next line/<br>addtional text next line
+						  					</div>
+						  					<div style="clear: both;">I am clearing float clear:both</div>
+						  		  </div>
+
+				  				  <style>
+				  
+				  				  	div.wrapperAfter div:last-child {
+				  				  		border:1px solid red;
+
+				  				    }
+				  				    .clearfixes:after { 
+				  				       content: "."; 
+				  				       visibility: hidden; 
+				  				       display: block; 
+				  				       height: 0; 
+				  				       clear: both;
+				  				    }
+				  				  </style>
+
+				  				  <h5 class="bg-warning">method containerElement:after </h5>
+				  				  				<div class="panel-group bg-primary">
+				  				  				    <div class="panel panel-default">
+				  				  				      <div class="panel-heading">
+				  				  				        <h4 class="panel-title">
+				  				  				          <span class="glyphicon glyphicon-circle-arrow-down" data-toggle="collapse" data-target="#collapseAfter">CSS (example below)</span>
+				  				  				        </h4>
+				  				  				      </div>
+				  				  				      <div id="collapseAfter" class="panel-collapse collapse">
+				  				  				        <div class="panel-body">
+				  				  				        	<div class="jumbotron">
+				  				      					  	<h4>CSS</h4>
+				  				      					    <code style="white-space: pre-line;">
+]
+  					  					  				    .clearfixes:after { 
+  					  					  				       content: "."; 
+  					  					  				       visibility: hidden; 
+  					  					  				       display: block; 
+  					  					  				       height: 0; 
+  					  					  				       clear: both;
+  					  					  				    }
+
+				  				      					  </code>
+				  				      					  </div>
+				  				  				        </div>
+				  				  				      </div>
+				  				  				    </div>
+				  				  				  </div><!--panel group-->
+				  				  <div class="wrapperAfter clearfixes" style="margin-bottom: 50px;border: 1px dotted green;">
+				  				  		<div class="floating">div: position:block,padding: 3px;border: 2px solid darkgrey;margin:2px;
+				  				  		</div>
+				  				    	<div class="floating ">div: position:block,padding: 3px;border: 2px solid darkgrey;
+				  						margin:2px;<br>addtional text next line<br>additional text next line<br>addtional text next line/<br>addtional text next line
+				  						</div>
+				  						
+				  				 </div>
+				  				 <div > I am regular div</div>
+
+			</div>
+		</div>
+
+
+
+
+				  
+				  
+
+				  
+
+
+
+			</section>
+		</div>
+	</div>
+	
+</body>
+</html>

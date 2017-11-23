@@ -1,0 +1,59 @@
+
+/************* array methods*****************/
+	//filter() > greater than
+	[1,2,4].filter(function(item){ return item>1}) //returns [2,4];
+	
+	equal to 
+	[1,2,4].filter(function(item){ return item==1}) //returns [1]
+
+	greater than  on string (works alphabetically)
+
+	['slot','great','set','arab'].filter(function(item){ return item>'arab'}) //returns 			
+ //["slot", "great", "set"]
+	
+
+/********************/
+/************* array method *****************/
+// fills an array with given value for all pockets;
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+fruits.fill("Kiwi"); //returns ['kiwi','kiwi','kiwi','kiwi'];
+
+
+/********************/
+/************* terminal commands*****************/
+	find files recursively
+
+find . *.html (find all *.html ) from current directory down (recursive that way with .dot )
+	
+
+/********************/
+/************* terminal comand*****************/
+
+REALLY cool !!!
+		find and replace 'world' in multiply files recursively 
+
+grep -rli 'text-replace' * | xargs -I@ sed -i '' 's/text-replace/new-word/g' @
+
+/********************/
+/************* sublime  plugins *****************/
+	nice plugins for icons telling you what file you are editing;
+	
+	 A file icon plugin 
+
+	configuration check 
+	https://www.youtube.com/watch?v=aTpuEhVHASw
+
+/********************/
+/************* sublime  plugins *****************/
+	plugin config 
+	
+	 A file icon config file custom user setting for icon apply 
+
+	"color":"#efad5a",
+  "color_on_select":"#fff",
+  "opacity":0.6,
+  "opacity_on_select":1.0,
+
+/********************/
+

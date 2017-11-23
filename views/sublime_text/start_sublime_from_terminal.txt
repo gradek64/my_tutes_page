@@ -1,0 +1,21 @@
+		
+		1) check if that works for your the hard-coded link for sublime 			executatbale file 
+
+		open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl
+
+		2) if it works we need to link that to our $PATH global with a simlink as below:
+
+			ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
+
+		 above we have: ln- s (soft link) (main_source ) (link to be shown to execute)
+
+		3) open or create .bash_profile in your home directory with this content 
+			
+			# export PATH=$PATH:/usr/bin (or and) /usr/local/bin
+			export PATH=/usr/local/bin:$PATH
+		any execution fo terminal command will look what is yoru $PATH setup and will look for sublime command
+
+		4) test your work by 
+
+			sublime ./ or (file_name) etc ..
+		

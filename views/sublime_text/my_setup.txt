@@ -1,0 +1,8 @@
+		
+
+		1) intalled packages
+			linejumper (allows to jump 10 lines at once with arrows)
+			AdvancedNewFilePluging (quicly create files in directories);
+			compare side-by-side (allows compare 2 files side by side)
+		2) make your own code snippets (check files with extension
+				name.sublime-snippet) in this directory;

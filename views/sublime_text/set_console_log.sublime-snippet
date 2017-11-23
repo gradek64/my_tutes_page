@@ -1,0 +1,14 @@
+<snippet>
+	<!-- Optional: Tab trigger to activate the snippet 
+			${0}; = cursor in the end the last tab 
+			${1},${2}.. number of tabs key hit
+
+		-->
+    <content><![CDATA[console.log(${0});]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>ll</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in (this case only js files)-->
+    <scope>source.js</scope>
+    <!-- Optional: Description to show in the menu -->
+    <description>My Fancy Snippet</description>
+</snippet>

@@ -1,0 +1,17 @@
+<snippet>
+	<!-- Optional: below are the snippet globals pretty cool -->
+    <content>
+    	<![CDATA[
+    	====================================
+			USER NAME:          $TM_FULLNAME
+			FILE NAME:          $TM_FILENAME
+ 			TAB SIZE:           $TM_TAB_SIZE
+			SOFT TABS:          $TM_SOFT_TABS
+		====================================
+		]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>cred</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in (this case only js files)-->
+    <!-- Optional: Description to show in the menu -->
+    <description>my credidetials</description>
+</snippet>

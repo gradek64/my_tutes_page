@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my notes</title>
+    <link rel='stylesheet' href='/styles/css/style.css' />
+    <!-- scripts and links-->
+               <% include header%>
+    <!-- scripts and links-->
+
+  </head>
+  <body>
+   <div class="container make-note">
+      <div class="row">
+        
+                    <div class="object four">
+                        <div class="row" id="contact">
+                            <div class="container">
+                                <div class="col-xs-12 col-md-6">
+                                    <h1><&#33;-- Leave a note Gregi --></h1>
+                                    <button id="insertTemplate" class="btn-primary">insert template</button>
+                                    <!-- <button id="deleteTemplate" class="btn-primary">deleteSelected</button> -->
+                                    <form action="/make_note_submit" method="POST">
+
+                                      
+                                      <div class="form-group"> <!-- Message field -->
+                                        <label class="control-label " for="message">Message</label>
+                                        <textarea class="form-control" cols="40" id="message" name="message" rows="10"></textarea>
+                                      </div>
+                                      
+                                      <div class="form-group">
+                                        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+                                      </div>
+                                      
+                                    </form>
+                                </div><!-- /contact -->
+                                <div class="col-xs-12 cold-md-6" >
+                                      <div>
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                
+                                              <h3 class="pull-left">Staff to examine a bit></h3>
+                                               <form action="/delete_note" method="POST"><button class="btn btn-primary pull-right" name="submit" type="submit">Delete note</button></form>
+                                              <div class="clearfix"></div>
+                                              </div>
+                                            <div class="panel-body" style="white-space: pre;"><%= notes %></div>
+                                          </div>
+                                        
+                                      </div>
+                                      <div id="set" style="white-space: pre;"></div>
+
+                                </div><!-- /social -->
+                            </div><!-- /cointainer -->
+                        </div><!-- /contact -->
+                    </div><!-- /object four -->
+      </div>
+      <div class="rows">
+      </div>
+      <script>
+        console.warn('check make_note.ejs for additional refference');
+        $(document).ready(function () {
+         /*  var markers = null;
+            $.get("messageContent.xml", {}, function (xml){
+              $('part',xml).each(function(i,gg){
+                
+                var element = $('<p></p>');
+                 $(document.getElementById('set')).html(gg.innerHTML);
+              });
+            });*/
+
+
+            /****/
+
+                                    /*==========================
+                                    allow tab key in text area
+                                    ==========================*/
+
+            var textareas = document.getElementsByTagName('textarea');
+            var count = textareas.length;
+            for(var i=0;i<count;i++){
+                textareas[i].onkeydown = function(e){
+                    if(e.keyCode==9 || e.which==9){
+                        e.preventDefault();
+                        var s = this.selectionStart;
+                        this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+                        this.selectionEnd = s+1; 
+                    }
+                }
+            }
+
+
+                                          /*===============
+                                          insert template
+                                          ===============*/
+              document.getElementById('insertTemplate').addEventListener('click',function(e){
+                  console.log('works');
+                    textareas[0].value = "/************* terminal *****************/\n\r\n\r/********************/";
+              });
+
+        document.getElementById('deleteTemplate').addEventListener('click',RemoveContent);
+        function RemoveContent() {
+
+            if (document.createRange) {     // all browsers, except IE before version 9
+                var rangeObj = document.createRange ();
+                rangeObj.selectNodeContents(textareas[0]);
+                rangeObj.deleteContents ();
+            }
+            else {      // Internet Explorer before version 9
+                var rangeObj = document.body.createTextRange ();
+                rangeObj.moveToElementText (textareas[0]);
+                rangeObj.select ();
+                rangeObj.execCommand ('cut');
+            }
+        }
+                            
+                          
+                      
+                    
+        });
+      </script>
+   </div>
+
+    
+    
+
+
+
+  </body>
+</html>

@@ -1,0 +1,32 @@
+/*
+                        any variable in sass is consiered as list even if there is only one value;
+
+                        Elements in list are seperated by comma or space;
+                  
+            */
+/*it is list as value*/
+/*it is list as value*/
+html {
+  /*length requires 1 arugment*/
+  width: 1;
+  width: 1;
+  width: 2;
+  background: 6px 7px 8px blue;
+  /*replace list value ...requires 3 arguments ONLY accepsts nested coma seperate lists*/
+  text-shadow: 1px 2px 3px green, 6px 7px 8px blue, 0em 1em 0.5em brown;
+  /* list-separator  requires 1 arugment*/
+  height: space;
+  height: comma;
+  /* join  requires 2 arugment 3 optional*/
+  line-height: 1px 2px 3px green, 6px 7px 8px blue, 3px 2px 1px yellow, Helvetica, sans-serif;
+  line-height: 200px 200px;
+  line-height: 200px "Arial";
+  line-height: Helvetica, sans-serif, "Arial";
+  /* append  requires 2 arugment*/
+  font: black green blue red gray;
+  /* index of the value in the list  requires 2 arugment*/
+  font-size: 3;
+  font-size: 1;
+  /* cobines lists into large single list*/
+  background: 1px 4em black, 2px 3em green, 3px 2em blue, 4px 1em red;
+  background: 4em 4em 4em, 3em 3em 3em; }
