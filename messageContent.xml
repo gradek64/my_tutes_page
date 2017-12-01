@@ -56,4 +56,42 @@ grep -rli 'text-replace' * | xargs -I@ sed -i '' 's/text-replace/new-word/g' @
   "opacity_on_select":1.0,
 
 /********************/
+works
+/************* terminal *****************/
+
+
+/********************/
+/************* node rortes and import *****************/
+//to request file in node you need to:
+
+var express = require('express');
+var router = express.Router();
+
+//note is the object exposed from module.exports = {} from node.js
+var note = require('./note');
+
+router.route('/make_note').get(note.make_note);
+router.route('/make_note_submit').post(note.make_note_submit);
+router.route('/delete_note').post(note.delete_note);
+
+//in the node.js 
+
+module.exports = {
+    make_note : function(req, res){
+     //something
+    },
+    make_note_submit : function(req, res){
+      //something
+    },
+    delete_note : function(req, res){ 
+	//something
+    }
+}
+
+// module.exports = {} that is exposed outside
+
+
+
+
+/********************/
 ]]></body>

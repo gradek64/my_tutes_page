@@ -1,0 +1,12 @@
+
+
+		1)  npm init -y 
+		2) npm i -D webpack
+		3) mkdir build/index.html
+		4) mkdir app/index.js
+		5) touch webpack.config.js
+		6) scripts:{"build":"webpack"} in package.json
+		7) npm i babel-core babel-loader webpack-dev-server babel-preset-es2015 babel-polyfill -D		
+		8) update webpack.config.js with loaders section
+		9) update package.json with babel:{} tab
+		10) update package.json with scripts:{'server':'webpack-dev-server'}

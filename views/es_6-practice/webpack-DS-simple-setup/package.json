@@ -1,0 +1,18 @@
+	{
+  "name": "webpack-configuration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app-entry-point.js",
+  "scripts": {
+    "compile": "webpack ./app-entry-point.js app.bundle.js",
+    "server": "webpack-dev-server --hot",
+    "all-together" : "npm run compile && npm run server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.5"
+  }
+}

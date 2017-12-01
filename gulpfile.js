@@ -41,3 +41,10 @@ gulp.task('watch', () => {
 gulp.task('buildCss', () => {
     buildCss();
 });
+
+gulp.task('default', () => {
+    buildCss();
+});
+
+//it has to be there for some reson for git to commit;
+gulp.task('pre-commit', []);
