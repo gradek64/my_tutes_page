@@ -16,3 +16,45 @@ router.route('/make_note_submit').post(note.make_note_submit);
 router.route('/delete_note').post(note.delete_note);
 
 module.exports = router;
+
+//git pages;
+router.route('/git').get(function(req, res, next) {
+  res.render('git/git_esential_training_summary');
+});
+
+//css staff;
+router.route('/CSS_all_selectors').get(function(req, res, next) {
+  res.render('css_staff/CSS_all_selectors_refference');
+});
+router.route('/CSS_all_selectors').get(function(req, res, next) {
+  res.render('css_staff/click_activated_css3_js_together');
+});
+
+//vanila javascript 
+router.route('/array_methods').get(function(req, res, next) {
+  res.render('vanilla_js_routes/array_methods');
+});
+router.route('/array_checks_and_loop').get(function(req, res, next) {
+  res.render('vanilla_js_routes/array_checks_and_loops');
+});
+router.route('/Object_properties_and_methods').get(function(req, res, next) {
+  res.render('vanilla_js_routes/Object_properties_and_methods');
+});
+router.route('/String_methods').get(function(req, res, next) {
+  res.render('vanilla_js_routes/String_methods');
+});
+
+//linux terminal commands 
+router.route('/terminal_commands_flags').get(function(req, res, next) {
+  res.render('linux_terminal_commands/terminal_commands_flags');
+});
+
+//sublime text
+router.route('/sublime_text3_shortcuts').get(function(req, res, next) {
+  res.render('sublime_text/sublime_text3_shortcuts');
+});
+
+
+
+module.exports = router;
+
