@@ -1,6 +1,33 @@
-body {
-  background-color: green; }
+
+@import url('https://staging.amalytics.co/see/styles/main.87308b7e.css');
+
+html, body, #outer {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#outer {
+    display: table;
+}
+
+#inner_fixed {
+    display: table-row;
+}
+
+#bars {
+	height: 100px;
+	display: table-row;
+}
+
+#inner_remaining {
+    background-color: #DDDDDD;
+    
+    display: table-row;    
+}
+
 
 .make-note .panel-body {
   height: 400px;
   overflow-y: scroll; }
+

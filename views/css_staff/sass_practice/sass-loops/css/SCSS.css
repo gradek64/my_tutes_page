@@ -1,0 +1,77 @@
+p#dir11 {
+  font-size: 25px;
+  line-height: 35px; }
+
+p#dir12 {
+  font-size: 30px;
+  line-height: 40px; }
+
+p#dir13 {
+  font-size: 35px;
+  line-height: 45px; }
+
+p#dir14 {
+  font-size: 40px;
+  line-height: 50px; }
+
+p#dir15 {
+  font-size: 45px;
+  line-height: 55px; }
+
+p#dir16 {
+  font-size: 55px;
+  line-height: 65px; }
+
+/*each loop*/
+p {
+  font-size: 45px; }
+
+span {
+  font-size: 23px; }
+
+h1 {
+  font-size: 155px; }
+
+h2 {
+  font-size: 150px; }
+
+h3 {
+  font-size: 145px; }
+
+/*each loop*/
+p h1 {
+  font-size: 55px; }
+
+p h2 {
+  font-size: 45px; }
+
+p h3 {
+  font-size: 40px; }
+
+p h4 {
+  font-size: 35px; }
+
+p h5 {
+  font-size: 30px; }
+
+p h6 {
+  font-size: 25px; }
+
+/*Imporatant*/
+/*
+				
+				when you create a string is sass , it doenst matter ! 
+				if you use concatenation as "string" + $fontSizeNew
+				or you will use interpolation as "string 12px"
+
+				cause the final outcome we expect is string so it wont make diffrence in this case;
+		
+			*/
+p {
+  content: "Tuts+ is awesome! marked as 5 and font is:12px"; }
+
+.main {
+  width: calc(100% - $sideBar); }
+
+.main {
+  width: calc(100% - 250px); }

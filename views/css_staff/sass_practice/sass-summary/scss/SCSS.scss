@@ -1,0 +1,143 @@
+
+  /* sass interpolation  */
+          
+          $sideBar: 250px; //string 
+
+          // #{}   = #{$sideBar} interpolated variable;
+
+          .main {
+            width: calc(100% - $sideBar) //width: calc(100% - $sideBar) 
+          }
+          // lets INTERPOLATE with the j-day power
+          .main { 
+            width: calc(100% - #{$sideBar}) //width: calc(100% - 250px); }
+          }
+
+
+     /*sass maping and lists*/
+
+     $ListComas : Helvetica, sans-serif;
+     $color-qty: (red,orange,yellow,green,blue,indigo,violet); //U can wrap it in parethesis not neccesary to work
+     $listspaces: black green blue red;
+     $NestedList :   1px 2px 3px green,   6px 7px 8px blue,   3px 2px 1px yellow; //or 
+     $NestedList1 :  ( 
+                        (1px 2px 3px green)
+                        (6px 7px 8px blue)
+                        (3px 2px 1px yellow)
+                    );
+
+
+
+        // 1. length($variable)
+
+      p { content: length( $ListComas )  } ;  //returns 2
+      p { content: length( $listspaces )  } ;  //(based on space no coma inside ) returns 4
+      p { content: length( $NestedList )  } ;  //(based on coma blocks) returns 3
+
+
+        // 2. nth($list,index(number))  get value of the list under index
+
+        //nth requires 2 arguments ONLY accepsts nested coma seperate lists;
+        p { background: nth( $NestedList , 2 ) }; //(based on coma blocks) returns 6px 7px 8px blue;
+
+
+        //3. index() //index start from 1 not 0 just like in every css nth-child(1);
+        index($ListComas , 1): //returns the first index of $value in $list (or null).
+
+
+      /*if statement*/
+      $time:'morning';
+      a {
+          @if $time == "morning" {
+          color: red;
+        } @else if $time == "afternoon" {
+          color: blue;
+        } @else {
+          color: gray;
+        }
+      }
+
+
+
+
+
+
+    /*sass loops*/
+
+          /*for loop*/
+          @for $i from 5 through 1 { h#{$i} { content:$i} }
+          @for $i from 1 through 5 { h#{$i} { content:$i} }
+          
+          /*each loop*/
+
+             $headersMap : (
+                  h1 : 155px,
+                  h2 : 150px,
+                  h3 : 145px
+            ); 
+
+          /*end of for loop;*/
+
+          /*each loop*/
+             @each $head, $font in $headersMap{ //it will take $head = h1 pair and $font= 55px and so on ...
+                   #{$head} {
+                        font-size: $font;
+                  }
+             } 
+          /*end of each loop;*/
+
+          /*while loop;*/
+
+          $headers :  h1   ,   h2   ,   h3  ,   h4   ,   h5   ,   h6;
+          $fontSize : 55px , 45px , 40px , 35px , 30px , 25px;
+          $index : 1;
+
+          @while $index <= 6 {
+            p {
+                #{ nth( $headers , $index ) } {
+                      font-size: nth( $fontSize , $index ); //this one is string not hash #{}
+                }
+                $index : $index + 1;
+            }
+          }
+          /*end of while loop;*/
+
+  /*sass number of childern selection*/
+
+          //loop throght the colors in sass array (it is a list! )  and apply styling for every child from 1 to array.length;
+          $color-qty: (red,orange,yellow,green,blue,indigo,violet);
+          @each $color in $color-qty {
+
+            $number: index($color-qty, $color); //pick index of current array color entry;
+
+            &:nth-last-child(#{$number}):first-child { //generate css style for evert child equal to array.length
+              color: $color;
+
+              ~ .item {
+                color: $color;
+              }
+
+              &::after {
+                content: "There are #{$number} of us."
+              }
+            }
+          }
+
+          &:nth-last-child(n+8) {
+            &:first-child::after {
+              content: "There are more than 7. No more colors."
+            }
+          }
+
+/************/
+
+
+
+
+
+
+  
+    
+
+
+

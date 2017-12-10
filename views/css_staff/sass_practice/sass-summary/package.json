@@ -1,0 +1,17 @@
+{
+  "name": "sass_practice",
+  "version": "1.0.0",
+  "description": "simple convert to css",
+  "main": "index.js",
+  "scripts": {
+    "scss-single": "node-sass my-styles.scss my-styles.css",
+    "css-compile-all-from-folder": "node-sass scss/ -o css/",
+    "scss-watch": "node-sass --watch scss/ -o css/"
+  },
+  "author": "me",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.6.1",
+    "scss-compile": "^0.1.7"
+  }
+}

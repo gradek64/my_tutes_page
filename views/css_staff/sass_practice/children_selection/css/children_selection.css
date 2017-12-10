@@ -1,0 +1,125 @@
+.group {
+  text-align: center;
+  margin: 4em 0;
+  padding: 0 4em; }
+
+.item {
+  display: inline-block;
+  vertical-align: middle;
+  padding: .5em 2em .4em;
+  margin: .5em;
+  border: 2px solid currentColor;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 2;
+  color: gray; }
+  .item::after {
+    position: fixed;
+    display: block;
+    width: 100px;
+    top: 1em;
+    right: 0;
+    left: 0;
+    width: 100%; }
+  .item:nth-last-child(1):first-child {
+    color: red; }
+    .item:nth-last-child(1):first-child ~ .item {
+      color: red; }
+    .item:nth-last-child(1):first-child::after {
+      content: "There are 1 of us."; }
+  .item:nth-last-child(2):first-child {
+    color: orange; }
+    .item:nth-last-child(2):first-child ~ .item {
+      color: orange; }
+    .item:nth-last-child(2):first-child::after {
+      content: "There are 2 of us."; }
+  .item:nth-last-child(3):first-child {
+    color: yellow; }
+    .item:nth-last-child(3):first-child ~ .item {
+      color: yellow; }
+    .item:nth-last-child(3):first-child::after {
+      content: "There are 3 of us."; }
+  .item:nth-last-child(4):first-child {
+    color: green; }
+    .item:nth-last-child(4):first-child ~ .item {
+      color: green; }
+    .item:nth-last-child(4):first-child::after {
+      content: "There are 4 of us."; }
+  .item:nth-last-child(5):first-child {
+    color: blue; }
+    .item:nth-last-child(5):first-child ~ .item {
+      color: blue; }
+    .item:nth-last-child(5):first-child::after {
+      content: "There are 5 of us."; }
+  .item:nth-last-child(6):first-child {
+    color: indigo; }
+    .item:nth-last-child(6):first-child ~ .item {
+      color: indigo; }
+    .item:nth-last-child(6):first-child::after {
+      content: "There are 6 of us."; }
+  .item:nth-last-child(7):first-child {
+    color: violet; }
+    .item:nth-last-child(7):first-child ~ .item {
+      color: violet; }
+    .item:nth-last-child(7):first-child::after {
+      content: "There are 7 of us."; }
+  .item:nth-last-child(n+8):first-child::after {
+    content: "There are more than 7. No more colors."; }
+
+.controls {
+  text-align: center; }
+
+button {
+  padding: .5em; }
+  button.hide {
+    display: none; }
+
+/**** align content according to the number of items to be displayed. ****/
+/*initial display for list will be */
+nav.table-initial ul {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+  border: 1px dotted #333; }
+  nav.table-initial ul li {
+    list-style: none;
+    display: table-cell;
+    vertical-align: middle; }
+    nav.table-initial ul li + li {
+      border-left: 2px solid #000; }
+    nav.table-initial ul li a {
+      text-decoration: none;
+      color: #ccc;
+      display: block;
+      padding: 0.75em 1em;
+      font-size: 1.25em; }
+      nav.table-initial ul li a:hover, nav.table-initial ul li a a:focus {
+        text-decoration: underline; }
+    nav.table-initial ul li:nth-last-child(n+6):first-child {
+      display: inline-block;
+      border: 0;
+      background-color: green; }
+      nav.table-initial ul li:nth-last-child(n+6):first-child ~ * {
+        display: inline-block;
+        border: 0;
+        background-color: green; }
+
+/**** centerize the menu according to the conent *******/
+div.container .spacing {
+  width: 100%;
+  border: 1px solid red; }
+  div.container .spacing ul {
+    display: table;
+    margin: 0 auto; }
+    div.container .spacing ul li {
+      list-style: none;
+      display: inline-block; }
+      div.container .spacing ul li a {
+        text-decoration: none;
+        color: #ccc;
+        display: block;
+        padding: 0.75em 1em;
+        font-size: 1.25em; }
+        div.container .spacing ul li a:hover, div.container .spacing ul li a a:focus {
+          text-decoration: underline; }

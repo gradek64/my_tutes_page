@@ -1,0 +1,93 @@
+$paragraphs :  #dir16   ,   #dir15   ,   #dir14  ,   #dir13   ,   #dir12   ,   #dir11;
+$len : length( $paragraphs );
+$fontSize : 55px , 45px , 40px , 35px , 30px , 25px;
+
+
+@for $i from $len through 1 {
+	p {
+
+      &#{ nth( $paragraphs , $i ) } {
+            font-size: nth( $fontSize , $i );
+            line-height: nth( $fontSize , $i ) + 10;
+      }
+  	}
+}
+ $headersMap : (
+      h1 : 155px,
+      h2 : 150px,
+      h3 : 145px
+); 
+/*each loop*/
+@each $header, $fonter in (p, 45px),(span, 23px){ //(p, 45px),(span, 23px) this could be replaced in map list below;
+	 #{$header} {
+           font-size: $fonter;
+     }
+}
+@each $head, $font in $headersMap{ //it will take $head = h1 pair and $font= 55px and so on ...
+      #{$head} {
+           font-size: $font;
+     }
+} 
+/*each loop*/
+
+
+//#{} it is sass way of interpolation so it wont treat as string it will treat it as variable;
+//for example in our case nth( $headers , $index ) returns "h1" so string but 
+
+//    #{nth( $headers , $index )} returns h1 selector  (interpolated value)
+$headers :  h1   ,   h2   ,   h3  ,   h4   ,   h5   ,   h6;
+$fontSize : 55px , 45px , 40px , 35px , 30px , 25px;
+$index : 1;
+@while $index <= 6 {
+	p {
+      #{ nth( $headers , $index ) } {
+            font-size: nth( $fontSize , $index ); //this one is string not hash #{}
+      }
+      $index : $index + 1;
+  }
+}
+
+
+//light on interpolation is sass 
+
+$description: "awesome"; //string
+$value:5;//number 
+$fontSizeNew:12px;
+$statement:"Tuts+ is #{$description}! marked as #{$value} and font is:"+ $fontSizeNew ; //it will take only the content of variable and datatype doent matter as long is could be rendered
+
+
+			/*Imporatant*/
+
+			/*
+				
+				when you create a string is sass , it doenst matter ! 
+				if you use concatenation as "string" + $fontSizeNew
+				or you will use interpolation as "string #{$fontSizeNew}"
+
+				cause the final outcome we expect is string so it wont make diffrence in this case;
+		
+			*/
+
+p {
+	content: $statement;
+}
+
+
+
+//but what happens if you final outcome is not string but some kind of Sass transformation as below;
+
+$sideBar: 250px; //string 
+
+.main {
+	width: calc(100% - $sideBar) //it will throw error cause $sideBar Value is a string 
+}
+//prove to me it is a string !!  I will
+
+$type-of-expression: type-of(calc(100% - $sidebar-width)); // string
+
+// lets INTERPOLATE with the j-day power
+.main {
+	width: calc(100% - #{$sideBar}) //it will throw error cause $sideBar Value is a string 
+}
+
+

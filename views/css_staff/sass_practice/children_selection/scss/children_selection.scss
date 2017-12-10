@@ -1,0 +1,159 @@
+
+
+$color-qty: (
+  red,
+  orange,
+  yellow,
+  green,
+  blue,
+  indigo,
+  violet
+);
+
+.group {
+  text-align: center;
+  margin: 4em 0;
+  padding: 0 4em;
+}
+.item {
+
+  //those are need to be style based how many of those appear;
+  display: inline-block;
+  vertical-align: middle;
+  padding: .5em 2em .4em;
+  margin: .5em;
+  border: 2px solid currentColor;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 2;
+  color: gray;
+
+  &::after {
+    position: fixed;
+    display: block;
+    width: 100px;
+    top: 1em;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }  
+  
+  //loop throght the colors and apply styling for every child from 1 to array.length;
+  @each $color in $color-qty {
+
+    $number: index($color-qty, $color); //pick index of current array color entry;
+
+    &:nth-last-child(#{$number}):first-child { //generate css style for evert chidl equel to array.length
+      color: $color;
+
+      ~ .item {
+        color: $color;
+      }
+
+      &::after {
+        content: "There are #{$number} of us."
+      }
+    }
+  }
+
+  &:nth-last-child(n+8) {
+    &:first-child::after {
+      content: "There are more than 7. No more colors."
+    }
+  }
+}
+
+.controls {
+  text-align: center;
+}
+button {
+  padding: .5em;
+  &.hide {
+    display: none;
+  }
+
+}
+
+/**** align content according to the number of items to be displayed. ****/
+
+          /*initial display for list will be */
+
+
+nav.table-initial {
+      ul  {
+
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        text-align: center;
+        border:1px dotted #333;
+
+              li {
+                list-style: none;
+                display: table-cell; //evenly spread;
+                vertical-align: middle;
+                  
+                   + li { //sibling selector wont select the last one;
+                        border-left: 2px solid #000;
+                      }
+
+                     a {
+                        text-decoration: none;
+                        color: #ccc;
+                        display: block;
+                        padding: 0.75em 1em;
+                        font-size: 1.25em;
+                            &:hover, a:focus {
+                                text-decoration: underline;
+                            }  
+                      }
+
+                      //but if there is more than six make them display:inline;
+                      &:nth-last-child(n+6):first-child {
+                           display: inline-block;
+                            border: 0;
+                            background-color: green;
+                              ~ * { //selects every element that preceded by li:first-child
+                                  display: inline-block;
+                                  border: 0;
+                                  background-color: green;
+                              }
+                      }
+                  }
+
+            } 
+      } 
+
+
+  /**** centerize the menu according to the conent *******/
+div.container {
+   .spacing {
+        width: 100%;
+        border: 1px solid red;
+        
+          ul {
+                    display: table; //take only the actual width of the list;
+                    margin:0 auto;
+
+                     li {
+                          list-style: none;
+                          display: inline-block;
+
+                            a {
+                              text-decoration: none;
+                              color: #ccc;
+                              display: block;
+                              padding: 0.75em 1em;
+                              font-size: 1.25em;
+                                  &:hover, a:focus {
+                                      text-decoration: underline;
+                                  }  
+                              }
+                      }
+
+              }
+  }
+}
+
+
+             

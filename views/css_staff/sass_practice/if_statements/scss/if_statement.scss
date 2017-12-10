@@ -1,0 +1,13 @@
+$type 	 :element;
+$num  	 :10;
+$noValue :null;
+
+
+html {
+	@if $type == "sting set" {
+		content:"it is true"
+	}
+	@else {
+		content:"it is not true"
+	}
+}

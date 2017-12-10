@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sass-css children selection</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<link rel="stylesheet" href="css/children_selection.css">
+</head>
+<body>
+
+	<div class="group">
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+				  <div class="item">Item</div>
+	</div>
+
+	<div class="controls">
+	  <button class="add-item">Add Item</button>
+	  <button class="delete-item">Delete Item</button>
+	</div>
+
+		
+			
+				<nav role="navigation" class="table-initial" >
+				  <ul>
+				    <li><a href="#">home</a></li>
+				    <li><a href="#">about</a></li>
+				    <!-- add or remove items -->
+				  </ul>
+				</nav>
+
+				<nav role="navigation" class="table-initial">
+				  <ul>
+				    <li><a href="#">home</a></li>
+				    <li><a href="#">about</a></li>
+				    <li><a href="#">blog</a></li>
+				    <li><a href="#">FAQs</a></li>
+				    <li><a href="#">a link with a lot of text</a></li>
+				    <!-- add or remove items -->
+				  </ul>
+				</nav>
+
+				<nav role="navigation" class="table-initial">
+				  <ul>
+				    <li><a href="#">home</a></li>
+				    <li><a href="#">about</a></li>
+				    <li><a href="#">blog</a></li>
+				    <li><a href="#">FAQs</a></li>
+				     <li><a href="#">a link with a lot of text</a></li>
+				    <li><a href="#">shop</a></li>
+				    <li><a href="#">endorsements</a></li>
+				    <!-- add or remove items -->
+				  </ul>
+				</nav>
+
+	    <div class="container">
+			
+				<nav role="navigation" class="spacing">
+				  <ul>
+				    <li><a href="#">home</a></li>
+				    <li><a href="#">about</a></li>
+				    <!-- add or remove items -->
+				  </ul>
+				</nav>
+
+				<nav role="navigation" class="spacing">
+				  <ul>
+				    <li><a href="#">home</a></li>
+				    <li><a href="#">about</a></li>
+				    <li><a href="#">blog</a></li>
+				    <li><a href="#">FAQs</a></li>
+				    <li><a href="#">a link with a lot of text</a></li>
+				    <li><a href="#">home</a></li>
+				    <li><a href="#">about</a></li>
+				    <li><a href="#">blog</a></li>
+				    <li><a href="#">FAQs</a></li>
+				    <li><a href="#">a link with a lot of text</a></li>
+				    <!-- add or remove items -->
+				  </ul>
+				</nav>
+		</div>
+
+	<script>
+		$('.controls').on('click', function(e){
+		  e.preventDefault();
+		  console.log(e);
+		  if ( $(e.target).hasClass('add-item') ) {
+		    $('.group').append('<div class="item">Item</div>');
+		    $('.hide').removeClass('hide');
+		  } else if ( $(e.target).hasClass('delete-item') ) {
+		    $('.item:last-child').remove();
+		    if ( $('.item').length == 0 ) {
+		      $('.delete-item').addClass('hide');
+		    }
+		  }
+		});
+	</script>
+	
+</body>
+</html>

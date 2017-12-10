@@ -1,0 +1,94 @@
+/* sass interpolation  */
+.main {
+  width: calc(100% - $sideBar); }
+
+.main {
+  width: calc(100% - 250px); }
+
+/*sass maping and lists*/
+p {
+  content: 2; }
+
+p {
+  content: 4; }
+
+p {
+  content: 3; }
+
+p {
+  background: 6px 7px 8px blue; }
+
+span {
+  content: "this is my reggae";
+  color: 17; }
+
+/*if statement*/
+a {
+  color: red; }
+
+/*sass loops*/
+/*for loop*/
+h5 {
+  content: 5; }
+
+h4 {
+  content: 4; }
+
+h3 {
+  content: 3; }
+
+h2 {
+  content: 2; }
+
+h1 {
+  content: 1; }
+
+h1 {
+  content: 1; }
+
+h2 {
+  content: 2; }
+
+h3 {
+  content: 3; }
+
+h4 {
+  content: 4; }
+
+h5 {
+  content: 5; }
+
+/*each loop*/
+/*end of for loop;*/
+/*each loop*/
+h1 {
+  font-size: 155px; }
+
+h2 {
+  font-size: 150px; }
+
+h3 {
+  font-size: 145px; }
+
+/*end of each loop;*/
+/*while loop;*/
+p h1 {
+  font-size: 55px; }
+
+p h2 {
+  font-size: 45px; }
+
+p h3 {
+  font-size: 40px; }
+
+p h4 {
+  font-size: 35px; }
+
+p h5 {
+  font-size: 30px; }
+
+p h6 {
+  font-size: 25px; }
+
+/*end of while loop;*/
+/*sass maping*/
