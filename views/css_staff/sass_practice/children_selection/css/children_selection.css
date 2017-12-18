@@ -78,14 +78,16 @@ button {
 /*initial display for list will be */
 nav.table-initial ul {
   display: table;
-  table-layout: fixed;
+  /* table-layout: fixed; */
   width: 100%;
   text-align: center;
-  border: 1px dotted #333; }
+  border: 1px dotted #333;
+  }
   nav.table-initial ul li {
     list-style: none;
-    display: table-cell;
-    vertical-align: middle; }
+    display: inline-block;
+    vertical-align: middle;
+    }
     nav.table-initial ul li + li {
       border-left: 2px solid #000; }
     nav.table-initial ul li a {

@@ -17,7 +17,7 @@
 </style>
 <body>
 	<div class="container-fluid" style="max-width: 1000px;margin: 0 auto;">
-		<div class="row">
+ <div class="row">
 	<h1>CSS weird selectors</h1>
 	<section class="part">
 		<h3 class="bg-primary">parent selector div > p </h3>
@@ -592,7 +592,392 @@
 				  						</div>
 				  						
 				  				 </div>
-				  				 <div > I am regular div</div>
+				  				 <h1>CSS centering and vertical positioning</h1>
+				  				 <!--block-->
+				  				 	<h3 class="bg-primary">inline-block</h3>
+
+				  				 	<div class="panel-group">
+				  				 	    <div class="panel panel-default">
+				  				 	      <div class="panel-heading">
+				  				 	        <h4 class="panel-title">
+				  				 	          <a data-toggle="collapse" href="#inline-centering">About:</a>
+				  				 	        </h4>
+				  				 	      </div>
+				  				 	      <div id="inline-centering" class="panel-collapse collapse">
+				  				 	        <div class="panel-body">
+				  				 	        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">
+				  				 	        		It will only center it vertically using <code> text-align: center; (parent)</code> and <code>display: inline-block; (child)</code>
+				  				 	        	</h4>
+				  				 	        	  	<h4>CSS</h4>
+				  				 	        	    <code style="white-space: pre-line;">
+				  				 	        	  	inline-centering  {
+														border: 1px solid green; 
+														<kbd>text-align: center;</kbd>
+														width:100%;
+														height:200px;
+				  				 	        			
+				  				 	        	  	}<br>
+				  				 	        	  	.inline-centering .centering {
+					  				 				    border:1px dotted gray;
+					  				 				    <kbd>display: inline-block;</kbd>
+					  				 				    color:orange;
+					  				 				    width: 20%;
+					  				 				}
+				  				 	        	  </code>
+				  				 	        </div>
+				  				 	        <div class="panel-footer">
+				  				 	        <h3>Example below</h3>
+				  				 				<style>
+				  				 				.inline-centering  {
+				  				 					border: 1px solid green; 
+				  				 					text-align: center;
+				  				 					width:100%;
+				  				 					height:200px;
+				  				 				}
+				  				 				.inline-centering .centering {
+				  				 				    border:1px dotted gray;
+				  				 				    display: inline-block;
+				  				 				    color:orange;
+				  				 				    width: 20%;
+				  				 				}
+				  				 				</style>
+				  				 				</head>
+				  				 				<body>
+
+				  				 				<div class="inline-centering">
+	
+															<div class="centering">this is content to be centered vertically and horizontaly</div>
+		
+				  				 							
+
+				  				 				</div>
+				  				 	      		</div>
+				  				 	    	</div>
+				  				 	    </div>
+				  				 	    <!--block-->
+			 	      				 <!--block-->
+			 	      				 	<h3 class="bg-primary">position: absolute ; margin : negative (not perfect in horizontal)</h3>
+
+			 	      				 	<div class="panel-group">
+			 	      				 	    <div class="panel panel-default">
+			 	      				 	      <div class="panel-heading">
+			 	      				 	        <h4 class="panel-title">
+			 	      				 	          <a data-toggle="collapse" href="#negative-container">About:</a>
+			 	      				 	        </h4>
+			 	      				 	      </div>
+			 	      				 	      <div id="negative-container" class="panel-collapse collapse">
+			 	      				 	        <div class="panel-body">
+			 	      				 	        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">
+			 	      				 	        		It will only vertically and not pefect horizontal<code> left:50%; right:50%;</code> and <code>margin-left: -10%; margin-right: -10%; what makes 20% of chidl width:20% so it is dynamic</code>
+			 	      				 	        	</h4>
+			 	      				 	        	  	<h4>CSS</h4>
+			 	      				 	        	    <code style="white-space: pre-line;">
+			 	      				 	        	  	.negative-container  {
+			 	      				 	        	  		<kbd>position: relative</kbd>;
+			 	      				 	        	  		border: 1px solid green; 
+			 	      				 	        	  		<kbd>width:100%</kbd>;
+			 	      				 	        	  		height:200px;
+			 	      				 	        	  	}
+			 	      				 	        	  	.negative-container .centering {
+			 	      				 	        	  	    border:1px dotted gray;
+			 	      				 	        	  	    <kbd>position: absolute</kbd>;
+			 	      				 	        	  	    width: 20%;
+			 	      				 	        	  	    <kbd>left:50%;</kbd>
+			 	      				 	        	  	    <kbd>right: 50%;</kbd>
+			 	      				 	        	  	    top:50%;  /*not perfect in horizontal it not fully centered dynamically */
+			 	      				 	        	  	    <kbd>margin-left: -10%;	</kbd>
+			 	      				 	        	  	    <kbd>margin-right: -10%;</kbd>  /*makes -10% -10%  entire width:20% */
+			 	      				 	        	  </code>
+			 	      				 	        </div>
+			 	      				 	        <div class="panel-footer">
+			 	      				 	        <h3>Example below</h3>
+			 	      				 				<style>
+			 	      				 				.negative-container  {
+			 	      				 					position: relative;
+			 	      				 					border: 1px solid green; 
+			 	      				 					width:100%;
+			 	      				 					height:200px;
+			 	      				 				}
+			 	      				 				.negative-container .centering {
+			 	      				 				    border:1px dotted gray;
+			 	      				 				    position: absolute;
+			 	      				 				    width: 20%;
+			 	      				 				    left:50%;
+			 	      				 				    right: 50%;
+			 	      				 				    top:50%;  /*not perfect in horizontal it not fully centered dynamically */
+			 	      				 				    margin-left: -10%;	
+			 	      				 				    margin-right: -10%;  /*makes -10% -10%  entire width:20% */
+
+			 	      				 				    
+			 	      				 				}
+			 	      				 				</style>
+			 	      				 				</head>
+			 	      				 				<body>
+
+			 	      				 				<div class="negative-container">
+			 	    
+			 	    											<div class="centering">this is content to be centered vertically and horizontaly</div>
+			 	    
+			 	      				 							
+
+			 	      				 				</div>
+			 	      				 	      		</div>
+			 	      				 	    	</div>
+			 	      				 	    </div>
+  				 	    				<!--block-->
+  				 	      				 <!--block-->
+  				 	      				 	<h3 class="bg-primary">position: absolute with tranlate(-50%,-50%)</h3>
+
+  				 	      				 	<div class="panel-group">
+  				 	      				 	    <div class="panel panel-default">
+  				 	      				 	      <div class="panel-heading">
+  				 	      				 	        <h4 class="panel-title">
+  				 	      				 	          <a data-toggle="collapse" href="#tranlate-container">About:</a>
+  				 	      				 	        </h4>
+  				 	      				 	      </div>
+  				 	      				 	      <div id="tranlate-container" class="panel-collapse collapse">
+  				 	      				 	        <div class="panel-body">
+  				 	      				 	        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">
+  				 	      				 	        		It will only vertically and pefect horizontal<code> left:50%; to[:50%;</code> and <code>transform:translate(-50%,-50%); /*makes it centered horizontly and vertically*/ it is dynamic</code>
+  				 	      				 	        	</h4>
+  				 	      				 	        	  	<h4>CSS</h4>
+  				 	      				 	        	    <code style="white-space: pre-line;">
+
+     				 	      				 				.translate-child-container  {
+     				 	      				 					<kbd>position: relative;</kbd>
+     				 	      				 					border: 1px solid green; 
+     				 	      				 					width:100%;
+     				 	      				 					height:300px;
+     				 	      				 				}
+     				 	      				 				.translate-child-container .centering {
+     				 	      				 				    border:1px dotted gray;
+     				 	      				 				    <kbd>position: absolute;</kbd>
+     				 	      				 				    width: 20%;
+     				 	      				 				    <kbd>left:50%;
+   			 	      				 				    		<kbd>top:50%;</kbd>
+     				 	      				 				    <kbd>transform:translate(-50%,-50%);</kbd> /*makes it centered horizontly and vertically*/
+     				 	      				 				}
+  				 	      				 	        	  
+  				 	      				 	        	  </code>
+  				 	      				 	        </div>
+  				 	      				 	        <div class="panel-footer">
+  				 	      				 	        <h3>Example below</h3>
+  				 	      				 				<style>
+  				 	      				 				.translate-child-container  {
+  				 	      				 					position: relative;
+  				 	      				 					border: 1px solid green; 
+  				 	      				 					width:100%;
+  				 	      				 					height:300px;
+  				 	      				 				}
+  				 	      				 				.translate-child-container .centering {
+  				 	      				 				    border:1px dotted gray;
+  				 	      				 				    position: absolute;
+  				 	      				 				    width: 20%;
+  				 	      				 				    left:50%;
+			 	      				 				    	top:50%;  
+  				 	      				 				    transform:translate(-50%,-50%);
+
+  				 	      				 				    
+  				 	      				 				}
+  				 	      				 				
+  				 	      				 				</style>
+  				 	      				 				</head>
+  				 	      				 				<body>
+
+  				 	      				 				<div class="translate-child-container">
+  				 	    
+  				 	    											<div class="centering">this is content to be centered vertically and horizontaly</div>
+  				 	    
+  				 	      				 							
+
+  				 	      				 				</div>
+  				 	      				 	      		</div>
+  				 	      				 	    	</div>
+  				 	      				 	    </div>
+  				 	      				 	    <!--block-->
+		 	     				 	      				 <!--block-->
+		 	     				 	      				 	<h3 class="bg-primary">display:table and display:table-cell (child)</h3>
+
+		 	     				 	      				 	<div class="panel-group">
+		 	     				 	      				 	    <div class="panel panel-default">
+		 	     				 	      				 	      <div class="panel-heading">
+		 	     				 	      				 	        <h4 class="panel-title">
+		 	     				 	      				 	          <a data-toggle="collapse" href="#table-container">About:</a>
+		 	     				 	      				 	        </h4>
+		 	     				 	      				 	      </div>
+		 	     				 	      				 	      <div id="table-container" class="panel-collapse collapse">
+		 	     				 	      				 	        <div class="panel-body">
+		 	     				 	      				 	        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">
+		 	     				 	      				 	        		It will only vertically and pefect horizontal<code> left:50%; to[:50%;</code> and <kbd>transform:translate(-50%,-50%);</kbd> /*makes it centered horizontly and vertically*/ it is dynamic</code>
+		 	     				 	      				 	        	</h4>
+		 	     				 	      				 	        	  	<h4>CSS</h4>
+		 	     				 	      				 	        	    <code style="white-space: pre-line;">
+
+							 	     				 	      				 				.table-container  {
+							 	     				 	      				 					<kbd>display: table;</kbd>
+							 	     				 	      				 					<kbd>border-collapse: collapse;</kbd> /*for displaing border*/
+							 	     				 	      				 					border: 1px solid green; 
+							 	     				 	      				 					width:100%;
+							 	     				 	      				 					height:300px;
+							 	     				 	      				 				}
+							 	     				 	      				 				.table-container .centering {
+							 	     				 	      				 				    border:4px dotted gray;
+							 	     				 	      				 				    <kbd>display: table-cell;</kbd>  /*it  will take entire width look at the border where is it the same as container*/
+							 	     				 	      				 				    border-collapse: collapse;
+							 	     				 	      				 				    <kbd>vertical-align: middle;</kbd>
+							 	     				 	      				 				    <del>width: 20%;</del>  /*it will ignore it since table-cell it will take entire width*/
+							 	     				 	      				 				}
+
+							 	     				 	      				 				.table-container .centering .setWidthChild {
+
+																												width: 20%;  /*it will work since this element doesnt have disply:table applied */
+																												<kbd>border: 1px solid red;</kbd> /*actual content border  not enitire table-cell*/
+																												<kbd>margin:0 auto;</kbd>
+							 	     				 	      				 				}
+		 	     				 	      				 	        	  
+		 	     				 	      				 	        	  </code>
+		 	     				 	      				 	        </div>
+		 	     				 	      				 	        <div class="panel-footer">
+		 	     				 	      				 	        <h3>Example below</h3>
+		 	     				 	      				 				<style>
+		 	     				 	      				 				.table-container  {
+		 	     				 	      				 					display: table;
+		 	     				 	      				 					border-collapse: collapse;
+		 	     				 	      				 					border: 1px solid green; 
+		 	     				 	      				 					width:100%;
+		 	     				 	      				 					height:300px;
+		 	     				 	      				 				}
+		 	     				 	      				 				.table-container .centering {
+		 	     				 	      				 					 border-collapse: collapse;
+		 	     				 	      				 				    border:4px dotted gray;
+		 	     				 	      				 				    display: table-cell;
+		 	     				 	      				 				    
+		 	     				 	      				 				    vertical-align: middle;
+		 	     				 	      				 				    width: 20%;  /*it will ignore it since table-cell it will take entire width*/
+		 	     				 	      				 				}
+
+		 	     				 	      				 				.table-container .centering .setWidthChild {
+
+																							width: 20%;  /*it will work since this element doesnt have disply:table applied */
+																							border: 1px solid red; /*actual content border*/
+																							margin:0 auto;
+		 	     				 	      				 				}
+		 	     				 	      				 				
+		 	     				 	      				 				</style>
+		 	     				 	      				 				</head>
+		 	     				 	      				 				<body>
+
+		 	     				 	      				 				<div class="table-container">
+		 	     				 	    
+		 	     				 	    											<div class="centering"><div class="setWidthChild"><p>this is content to be centered vertically and horizontaly</p><br><p>this is content to be centered vertically and horizontaly</p></div></div>
+		 	     				 	    
+		 	     				 	      				 							
+
+		 	     				 	      				 				</div>
+		 	     				 	      				 	      		</div>
+		 	     				 	      				 	    	</div>
+		 	     				 	      				 	    </div>
+		 	     				 	      				 	    <!--block-->
+
+				  				 	  <h3 class="bg-primary"> + (neihbour or next-to ) selector div + p </h3>
+
+				  				 	  		<div class="panel-group">
+				  				 	  		    <div class="panel panel-default">
+				  				 	  		      <div class="panel-heading">
+				  				 	  		        <h4 class="panel-title">
+				  				 	  		          <a data-toggle="collapse" href="#css-selectors-2">About:</a>
+				  				 	  		        </h4>
+				  				 	  		      </div>
+				  				 	  		      <div id="css-selectors-2" class="panel-collapse collapse">
+				  				 	  		        <div class="panel-body">
+				  				 	  		        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">Plus selector has simple rule , it will <em>only select first</em> neighbour in this case <mark>&#8249;p&#8250;</mark> first p element and only first one !  <mark>&#8249;div&#8250;</mark>.
+				  				 	  		        </div>
+				  				 	  		        <div class="panel-footer">
+				  				 	  		        <h3>Example below: div.plus-selector div + p  </h3>
+				  				 	  					<style>
+				  				 	  					.plus-selector div {border: 1px solid green;padding: 20px}
+				  				 	  					.plus-selector div + p {
+				  				 	  					    border:1px dotted gray;
+				  				 	  					    color:orange;
+				  				 	  					}
+				  				 	  					</style>
+				  				 	  					</head>
+				  				 	  					<body>
+
+				  				 	  					<div class="plus-selector">
+				  				 	  							<div>
+				  				 	  								<span>div</span>
+				  				 	  							 	<p>I am p element inside div so I am not selected</p>
+				  				 	  							  	<p>I am p element inside div so I am not selected</p>
+				  				 	  							  		
+				  				 	  							</div>
+				  				 	  							 <p style="margin-left:10px;">I am p element and I am the closet to the div so I am selected</p>
+				  				 	  							 <p style="margin-left:10px;">I am p element but I am second neighbour to the so I am not selected</p>
+
+				  				 	  							<div>
+				  				 	  								<span>div</span>
+				  				 	  								<p>I am p element inside div so I am not selected</p>
+				  				 	  							  	<span><p>I will not be styled. I am span element </p></span>
+				  				 	  							</div>
+				  				 	  							<section>i am section not selected</section>
+				  				 	  							<p>I am p but my nighbour is section not seleted ONLY FIRST ELEMENT AFTER DIV</p>
+				  				 	  							<p>I am p element and I am second neigbour even though I am first p in the row I am not selected ONLY FIRST ELEMENT AFTER DIV</p>
+				  				 	  					</div>
+				  				 	  		      		</div>
+				  				 	  		    	</div>
+				  				 	  		    </div>
+				  				 	  	 <h3 class="bg-primary"> tildo selector div ~ p </h3>
+
+				  				 	  		<div class="panel-group">
+				  				 	  		    <div class="panel panel-default">
+				  				 	  		      <div class="panel-heading">
+				  				 	  		        <h4 class="panel-title">
+				  				 	  		          <a data-toggle="collapse" href="#css-selectors-3">About:</a>
+				  				 	  		        </h4>
+				  				 	  		      </div>
+				  				 	  		      <div id="css-selectors-3" class="panel-collapse collapse">
+				  				 	  		        <div class="panel-body">
+				  				 	  		        	<h4 style="color:red;border: 1px dashed blue;line-height: 46px;padding: 20px;">Tildo selector is similar to plus selector ,but it will select all neighbours in this case <mark>&#8249;p&#8250;</mark> all p elements once plus selector only will select FIRST Neighbour and only FIRST <mark>&#8249;div&#8250;</mark>.
+				  				 	  		        </div>
+				  				 	  		        <div class="panel-footer">
+				  				 	  		        <h3>Example below</h3>
+				  				 	  					<style>
+				  				 	  					.tildo-selector div {border: 1px solid green;padding: 20px}
+				  				 	  					.tildo-selector div ~ p {
+				  				 	  					    border:1px dotted gray;
+				  				 	  					    color:orange;
+				  				 	  					}
+				  				 	  					</style>
+				  				 	  					</head>
+				  				 	  					<body>
+
+				  				 	  					<div class="tildo-selector">
+				  				 	  							<div>
+				  				 	  								<span>div</span>
+				  				 	  							 	<p>I am p element inside div so I am not selected</p>
+				  				 	  							  	<p>I am p element inside div so I am not selected</p>
+				  				 	  							  		
+				  				 	  							</div>
+				  				 	  							 <p style="margin-left:10px;">I am p element and I am the closet to the div so I am selected</p>
+				  				 	  							 <p style="margin-left:10px;">I am p element but I am second neighbour to the so I am not selected</p>
+
+				  				 	  							<div>
+				  				 	  								<span>div</span>
+				  				 	  								<div>nested div</div>
+				  				 	  								<p>I am nested p element and my neihbor is div so I am seleted</p>
+				  				 	  							  	<span><p>I will not be styled. I am span element </p></span>
+				  				 	  							</div>
+				  				 	  							<section>i am section not selected</section>
+				  				 	  							<p>I am p element and I am first neigbour but I will be selected</p>
+				  				 	  							<p>I am p element and I am second neigbour but I will be selected</p>
+				  				 	  					</div>
+				  				 	  		      		</div>
+				  				 	  		    	</div>
+				  				 	  		    </div>
+
+				  				 		
+
+				  				 	 
 
 			</div>
 		</div>
