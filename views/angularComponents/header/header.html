@@ -1,0 +1,28 @@
+<header>
+    <nav>
+        <div class="nav-wrapper container">
+            <a class="button-collapse logo" href="/">See</a>
+            <ul class="right" data-ng-hide="opts.isLoggedIn === false">
+                <li>
+                    <!--<a href="#!/login">Login</a>-->
+                    <dropdown opts="{buttonText: 'rc1@amalytics.co', beloworigin: true, alignment: 'right',
+                              className: 'waves-effect',
+                              items:[
+                                {label: 'Home', href: '/'},
+                                {label: 'State Designer', href: '!#/state-designer'},
+                              ],}"></dropdown>
+                </li>
+                <li>
+                    <a href="#" data-ng-click="onBellClick($event)"><i data-svg-bell
+                                                                       opts="{color:'white', height: '100%'}"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i data-svg-settings opts="{color:'white', height: '100%'}"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i data-svg-magnifying-glass opts="{color:'white', height: '100%'}"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

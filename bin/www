@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('my_tuts:server');
 var http = require('http');
+var opn = require('opn');
 
 /**
  * Get port from environment and store in Express.
@@ -14,6 +15,13 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+/**
+ * Get DEV enviroment to open in browser
+ */
+
+var dev = process.env.DEV || '';
+app.set('dev', dev);
 
 /**
  * Create HTTP server.
@@ -88,4 +96,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
   console.log("Magic happens on port:" + addr.port );
+  if(dev) opn(`http://127.0.0.1:${addr.port}`);
 }

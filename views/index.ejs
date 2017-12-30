@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myTutes">
   <head>
     <title><%= title %></title>
 
@@ -8,14 +8,24 @@
                <% include header%>
     <!-- scripts and links-->
 
+    <!-- normalize.css library in external libraries-->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="materialize-css/dist/css/materialize.css">
+    
+
+    <link rel="stylesheet" href="angularComponents/header/header.css">
   </head>
   <body>
 <div id="table-wrapper">
     
 
     <header>
-        this is header
+        <my-tutes-header></my-tutes-header>
     </header>
+
+    <div data-ng-view></div>
+
+
     <div class="content">
             <h1><%= title %></h1>
             <p>Welcome to <%= title %></p>
@@ -45,6 +55,18 @@
 
     </div>
     <footer>
+        <!-- angular part-->
+        <script src="angularComponents/angular_version/angular/angular.js"></script>
+        <script src="angularComponents/mainModuleAng.js"></script>
+        <script src="angularComponents/header/header.js"></script>   
+
+        <script src="angularComponents/utils/constants.js"></script>
+        <script src="angularComponents/utils/events.js"></script>
+        <script src="angularComponents/utils/misc.js"></script>  
+        <!--required by livereload -->
+        <script src="http://localhost:35729/livereload.js?snipver=1" charset="utf-8"></script>
+
+        <!-- angular part-->
         this is footer
     </footer>
 

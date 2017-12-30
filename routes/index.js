@@ -30,8 +30,10 @@ router.route('/click_activated_css3_js_together').get(function(req, res, next) {
 
 //vanila javascript 
 router.route('/array_methods').get(function(req, res, next) {
-  res.render('vanilla_js/array_methods');
+  //res.render('vanilla_js/array_methods');
+  res.render('vanilla_js/');
 });
+
 router.route('/array_checks_and_loops').get(function(req, res, next) {
   res.render('vanilla_js/array_checks_and_loops');
 });

@@ -1,0 +1,24 @@
+/**
+ * Created by Sergiu Ghenciu on 08/12/2017
+ */
+
+see-header {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+	color:blue;
+}
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse,
+nav a.button-collapse i {
+  height: 40px;
+  line-height: 40px;
+}
+
+nav {
+  .logo {
+    font-size: 1.4rem;
+  }
+}
